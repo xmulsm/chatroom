@@ -39,10 +39,10 @@ def register(req):
     '''
 
     if 'POST'==req.method:
+        invite_code = req.POST["inviteCode"]
+        nickname = req.POST['nickname']
+        password = req.POST['password']
         username=req.POST['username']
-        password=req.POST['password']
-        invite_code=req.POST['inviteCode']
-        nickname=req.POST['nickname']
         is_username=UserProfile.objects.filter(user_username__exact=username)
         is_nickname=UserProfile.objects.filter(user_nickname__exact=nickname)
         #如果用户表中存在用户名或者用户昵称则提示用户已注册

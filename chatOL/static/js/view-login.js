@@ -141,11 +141,10 @@ var login = (function () {
             reRegist(datas)
         }
         $.ajax({
-            url: '/register',
+            url: '/register/',
             type: 'post',
             data: datas,
             dataType: "html",
-            contentType: 'application/json',
             success: function (result) {
                 console.log(result);
                 if (result=='success') {
@@ -186,8 +185,9 @@ var login = (function () {
             nickname: name,
             password: password,
             //employerType: stateMap.$reltype,
-            inviteCode: code
-        }
+            inviteCode: code,
+            username:email
+            }
         if (allRegist) {
             if (emailReg.test(email)) {
                 datas.email = email
@@ -195,11 +195,12 @@ var login = (function () {
                 datas.phone = email
             } else {
                 if (isUsernameFormat(email) == true) {
+                datas.username = email
                 } else {
                     showAlert(domMap.$alert, isUsernameFormat(email));
                     return false
                 }
-                datas.username = email
+//                datas.username=email
             }
         } else if (emailRegist && telRegist) {
             if (emailReg.test(email)) {
