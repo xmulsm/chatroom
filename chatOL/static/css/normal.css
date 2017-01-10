@@ -1,0 +1,131 @@
+body{
+	width: 100%; height: 100%; margin: 0; padding: 0;
+}
+/*div的垂直居中*/
+.vetically_bg
+{
+    margin:0 auto; text-align: center;
+    display: -ms-flexbox; display: -webkit-flex; display: flex; 
+    -ms-flex-align: center; -webkit-align-items: center; -webkit-box-align: center; align-items: center;
+}
+
+/*全屏背景图片*/
+.img_fullscreen{
+    position: absolute; left: 0; top: 0; width: 100%; height: 100%; z-index: -1; overflow: hidden;
+}
+.img_fullscreen img{
+    width: 100%; height: 100%;
+}
+
+/*需要引用已用以下两个页面的 所有页面需要设置该class*/
+.all_content{
+    position: absolute; top: 0; bottom: 0; left: 0; width: 100%;
+    -moz-box-shadow: 0px 0px 8px 3px #CACACA;
+	-webkit-box-shadow: 0px 0px 8px 3px #CACACA;
+	box-shadow: 0px 0px 8px 3px #CACACA;
+}
+
+/* 关闭按钮 */
+.close_btn{
+	position: absolute; top: 0px; right: 10px; color: red; font-size: 2.5em; z-index: 2000;
+    font-weight: normal; filter: alpha(opacity=80); opacity: 0.8; text-shadow: none;
+    -webkit-border-radius: 50%; -moz-border-radius: 50%; border-radius: 50%;
+    width: 1em; height: 1em; line-height: 1em;
+/*     background-color: rgba(250, 250, 250, 0.6);  */
+}
+
+/*无更多数据*/
+.no_more{
+	width: 100%; text-align: center; color: green; line-height: 25px;
+}
+/*正在加载*/
+.pagedown_loading{
+	width: 100%; text-align: center; color: green; line-height: 25px;
+	position: fixed; left: 0; bottom: 55px;
+}
+.organge_word{color: #FF830F;}
+.red_word{color:#E80000;}
+.green_word{color: green;}
+
+.table .title{
+	background-color: #FC851F; color: #FFFFFF;
+}
+.table .title td:first-of-type,
+.table .title th:first-of-type{
+	border-left: 0;
+}
+.table .title td:last-of-type,
+.table .title th:last-of-type{
+	border-right: 0;
+}
+.table .td_center{
+	text-align: center;
+}
+
+.table>tbody>tr>td, 
+.table>tbody>tr>th, 
+.table>tfoot>tr>td, 
+.table>tfoot>tr>th, 
+.table>thead>tr>td, 
+.table>thead>tr>th{
+	padding: 5px;
+}
+ .table-bordered>thead>tr>td, .table-bordered>thead>tr>th{
+    border: 1px #FFFFFF solid;
+ }
+
+/*loading*/
+.loader_bg{
+/*     background-color: rgba(30,30,30,0.4);  */
+    width: 100%; height: 100%; position: absolute; top: 0; bottom: 0; left: 0; z-index: 1050;
+}
+.loader {
+  margin: 50% auto;
+}
+.loader_spinningDisc {
+  border: solid 0.5em #9b59b6;
+  border-right-color: transparent; border-left-color: transparent;
+  padding: 0.5em; width: 3em; height: 3em;
+  border-radius: 50%; background: #3498db; background-clip: content-box;
+  animation: spinDisc 1.5s linear infinite; -webkit-animation: spinDisc 1.5s linear infinite;
+  -ms-animation: spinDisc 1.5s linear infinite;   -o-animation: spinDisc 1.5s linear infinite;
+  -ms-animation: spinDisc 1.5s linear infinite;
+}
+@keyframes spinDisc {
+  50% {
+    border-top-color: #3498db;
+    border-bottom-color: #3498db;
+    background-color: #2ecc71;
+  }
+  100% {
+    -webkit-transform: rotate(1turn);
+    transform: rotate(1turn);
+  }
+}
+@-webkit-keyframes spinDisc {
+  50% {
+    border-top-color: #3498db;
+    border-bottom-color: #3498db;
+    background-color: #2ecc71;
+  }
+  100% {
+    -webkit-transform: rotate(1turn);
+    transform: rotate(1turn);
+  }
+}
+
+/*去除jquery mobile 末尾添加loading样式*/
+.ui-loader-default{ display:none}
+.ui-mobile-viewport{ border:none;}
+.ui-page {padding: 0; margin: 0; outline: 0} 
+      
+@media (min-width: 768px){
+    .table>tbody>tr>td, 
+	.table>tbody>tr>th, 
+	.table>tfoot>tr>td, 
+	.table>tfoot>tr>th, 
+	.table>thead>tr>td, 
+	.table>thead>tr>th{
+	    padding: 8px;
+	}
+}

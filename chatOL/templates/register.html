@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<!-- saved from url=(0042)http://www.101test.com/login#view=register -->
+<html>
+<head>
+    {% load static %}
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="Cache-Control" content="must-revalidate">
+    <meta http-equiv="expires" content="0">
+    <link rel="stylesheet" href="{%static 'css/core.css' %}">
+    <link rel="stylesheet" href="{%static 'css/core.css' %}">
+    <link rel="stylesheet" href="{%static 'css/login.css' %}">
+    <link rel="stylesheet" href="{%static 'css/jquery.mobile-1.4.5.min.css' %}">
+    <link rel="stylesheet" href="{%static 'css/jquery.mobile.icons-1.4.5.min.css' %}">
+    <link rel="stylesheet" href="{%static 'css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{%static 'css/moon.css' %}">
+
+    <script type="text/javascript" src="{%static 'js/jquery.min.js' %}"></script>
+    <script type="text/javascript" src="{%static 'js/model-plugin.js' %}"></script>
+    <script type="text/javascript" src="{%static 'js/view-login.js' %}"></script>
+    <script type="text/javascript" src="{%static 'js/constant.js' %}"></script>
+    <script src="{%static 'js/modernizr-custom.js' %}"></script>
+    <script type="text/javascript" src="{%static 'js/model-plugin.js'%}"></script>
+    <script type="text/javascript" src="{%static 'js/constant.js' %}"></script>
+    <script type="text/javascript" src="{%static 'js/msg.js' %}"></script>
+     <script type="text/javascript" src="{%static 'js/md5.js' %}"></script>
+
+
+    <script>
+    // Global variables
+    // @formatter:off
+    window.SETS = {
+        params: {},
+        request: {},
+        user: {},
+        env: {
+            isCompanyDomain: "" === 'true',
+            loginType: +"1",
+            root: "http://localhost:8000/",
+        }
+    };
+                    window.SETS.user.login = false;
+
+    // @formatter:on
+
+    </script>
+    <script>
+    window.root = "http://localhost:8000/"
+    window.SETS.employerType = '';
+    window.SETS.inviteCode = ''
+
+    </script>
+
+    <title>注册</title>
+
+</head>
+<body>
+
+<div class="container">
+    <div class="pager none"></div>
+
+    <div class="logo">
+        <img class="homelink" >
+    </div>
+    <div id="login_box"  class="box" style="display: none;" >
+        {% csrf_token %}
+        <div class="cells login-area">
+            <label class="cell-input input_control">
+                <div class="input-label">账号</div>
+                <input class="input"  id="account" type="text" placeholder="登录名/邮箱/手机号"
+                       style="-webkit-user-modify: read-write-plaintext-only;">
+            </label>
+
+            <label class="cell-input input_control">
+                <div class="input-label">密码</div>
+                <input class="input" id="pwd"  type="password" placeholder="密码">
+            </label>
+        </div>
+        <div class="handle-area">
+            <div class="re-checked checkimg">&nbsp;&nbsp;记住我</div>
+            <div class="resetpw">忘记密码?</div>
+        </div>
+        <div class="box-btn box-btn-primary btn-login big-f" >登&nbsp;&nbsp;录</div>
+        <div class="register" id="reg_btn">注册帐号<i class="fa fa-arrow-right" aria-hidden="true"></i></div>
+    </div>
+
+    <div id="reg_box" class="box" style="display: block;">
+        <div class="cells reg-area">
+
+
+            <label class="cell-input input_control">
+                <div class="input-label">昵称</div>
+                <input class="input" id="name" type="text" placeholder="姓名/昵称">
+            </label>
+
+            <label class="cell-input input_control">
+                <div class="input-label">账号</div>
+                <input class="input" id="email" type="text" placeholder="登录名/邮箱/手机号">
+            </label>
+
+            <label class="cell-input input_control">
+                <div class="input-label">密码</div>
+                <input class="input" id="password" type="password" placeholder="密码"
+                       style="-webkit-user-modify: read-write-plaintext-only;">
+            </label>
+
+            <label class="cell-input input_control">
+                <div class="input-label">邀请码</div>
+                <input class="input" id="invite-code" type="text" placeholder="邀请码（可以不填）"
+                       style="-webkit-user-modify: read-write-plaintext-only;">
+            </label>
+
+
+        </div>
+        <div class="box-btn box-btn-primary big-f btn-regist">注&nbsp;&nbsp;册</div>
+        <div class="register" id="login_btn">登录账号<i class="fa fa-arrow-right" aria-hidden="true"></i></div>
+    </div>
+
+    <!--<div class="login-text-link flex none">-->
+        <!--<div class="login-icon login-wx none"><i class="fa fa-weixin"></i></div>-->
+        <!--<div class="login-icon login-qq"><i class="fa fa-qq"></i></div>-->
+        <!--<div class="login-icon login-dingding"><i class="moon moon-dingding"></i></div>-->
+        <!--<div class="login-icon login-mingdao"><img src="images/mingdao24.png"></div>-->
+    <!--</div>-->
+
+</div>
+
+<script type="text/javascript">
+
+    var root = "";
+    var callback = "";
+    var uri = "";
+    var type = "";
+    var companyDomain = "";
+    var code = "";
+    <!--console.log(companyDomain);-->
+    $(document).ready(function () {
+        $('.input_control').find('div').removeClass('ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset')
+    });
+    login.initModule($('.container'));
+
+//    $('.logo').bind('click',function(){
+//        location.href=root+'/home'
+//    })
+
+
+</script>
+
+
+</body>
+</html>

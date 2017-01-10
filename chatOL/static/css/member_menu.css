@@ -1,0 +1,282 @@
+body{
+    padding: 0; margin: 0; width: 100%; height: 100%; overflow: hidden;
+}
+.left_menu_bg{
+    width: 100%; overflow: auto; display: none;
+    position: absolute; top: 0; left: 0; right: 100%; bottom: 45px; z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.left_menu_bg.show_menu{
+    display: block;
+}
+.left_menu_bg .left_menu{
+    width: 80%; margin: auto; height: 80%; margin-top: 10%; 
+    background-color: white; position: relative; padding-top: 30px;
+}
+.left_menu_bg .left_menu .go_back{
+    color: green; font-size:1.6em; position: absolute; top: 5px; left: 10px;
+    opacity: 0.8; filter: alpha(opacity=80); display: none;
+}
+.left_menu_bg .left_menu .close_btn{
+    right: 0;
+}
+.left_menu_bg .left_menu .children_menu_ul .demo_li2{
+    display: none;
+}
+.menu_li{
+    cursor: pointer;
+}
+.left_menu_bg .left_menu .children_menu_ul .active{
+    color: #FFFFFF; background-color: #55BEDD; border-color: #55BEDD;
+}
+.left_menu_bg .left_menu .children_menu_ul .child_menu_li:after{
+    content:"›"; position: absolute; top: 0px; right: 5px; color: #31b0d5; z-index: 200; font-size: 2em;
+}
+.menu_li_logout:before{
+    content:""; position: absolute; top: 0px; right: 0px; z-index: 220; 
+    width: 30px; height: 30px; background-color: white;
+}
+/*一级菜单*/
+.menu_tab_div{
+    position: absolute; bottom: 0px; width: 100%; height: 45px;
+}
+.menu_tab_div .menu_navbar.navbar{
+    min-height: 45px; border: 0;
+}
+.menu_tab_div .activity_top{
+    width: 100%; height: 100%; background-color: #F7F7F7;
+    border-top: 1px #D2D2D2 solid; border-bottom: 0; margin:0;
+}
+.menu_tab_div .activity_top .nav_li{
+    text-align: center;
+/*      border-left: 1px #ddd solid;  */
+}
+
+.activity_top>.nav_li:first-of-type{
+    border-left: 0;
+}
+.menu_tab_div .activity_top #choose_video_li{
+    display: none;
+}
+.menu_tab_div .activity_top.nav>li>a{
+    padding: 0; line-height: 45px; border-top: 0; border-left: 0; border-right: 0;
+    color: #6C6C6C; width: 100%; border-bottom: 1px #F7F7F7 solid; 
+}
+.menu_tab_div .activity_top.nav-tabs>li.active>a,
+.menu_tab_div .activity_top.nav-tabs>li.active>a:focus,
+.menu_tab_div .activity_top.nav-tabs>li.active>a:hover{
+    border: 0; font-weight: bold; background-color: #F7F7F7; height: 45px; 
+/*     color: #FF830F;   */
+    border-bottom: 2px #FF830F solid; color: #31b0d5;  
+}
+.menu_tab_div .activity_content{
+    position: absolute; bottom: 44px; top: 0; left: 0; width: 100%; overflow: auto;
+}
+.menu_tab_div .activity_content .tab-pane{
+    width: 100%; height: 100%;
+}
+
+/* 菜单‘我’的下拉菜单 */
+/* .me_div{ */
+/*     position: absolute; top: -4px; right: 5px; width: 140px; z-index: 810;  */
+/* } */
+.me_div{
+    position: absolute; bottom: 0; right: 0px; z-index: 1030;
+}
+.me_div .dropdown-menu{
+/* 	min-width: 130px; */
+	width: 100%;
+}
+.me_div .icon_menu{
+/* 	float: right; margin: 5px 0 0 0; */
+    width: 100%; height: 100%; 
+}
+.me_div .icon_menu:before{
+/* 	content: '☰'; color: red; font-size: 1.5em; */
+}
+.me_div .me_ul{
+    bottom: 60px; top: auto; left: auto; right: 5px; 
+    padding: 0; margin: 0; border: 0; min-width: 160%;
+/*     border: 1px #E6E6E6 solid; border-top: 0; border-bottom: 0; margin:0; */
+}
+.me_div .me_ul:before{
+	content: ""; width: 0px; height: 0px; position: absolute; bottom: -14px; right: 20%;
+    border-left: 18px solid transparent; border-right: 18px solid transparent;
+    border-top: 18px solid #CCCCCC;
+/*     border-bottom: 16px solid #CCCCCC;  top: -16px; */
+}
+.me_div .me_ul:after{
+	content: ""; width: 0px; height: 0px; position: absolute; bottom: -13px; right: 22%;
+    border-left: 15px solid transparent; border-right: 15px solid transparent;
+    border-top: 15px solid #FFFFFF;
+/*     border-bottom: 15px solid #FFFFFF;top: -15px;*/
+}
+.me_div .me_ul li{
+	text-align: center;  border-bottom: 1px #DDD solid; padding: 8px 10px; background-color: #FBFBFB;
+/* 	padding: 0; height: 35px; line-height: 35px; */
+}
+.me_div .me_ul li.no_click{
+	background-color: #F5F5F5;
+}
+.me_div .me_ul li.active{
+	color: #FF830F; font-weight: bold; border-color: #ddd; font-family: Simhei;
+}
+.me_div .me_ul li:last-of-type{
+	border-bottom: 0;
+}
+.me_div .me_ul li.menu_li_logout:before{
+    width: 0; height: 0;
+}
+	
+.me_div .dropdown-menu>.active>a,
+.me_div .dropdown-menu>.active>a:focus, 
+.me_div .dropdown-menu>.active>a:hover{
+	background-color: inherit; color: inherit;
+}
+
+.other_child_menu{
+    position: absolute; top: 0; left: 0; width: 100%; background-color: #F5F5F5; 
+}
+.other_child_menu ul{
+	border-bottom: none;
+}
+/* .other_child_menu .navbar{min-height: 30px;} */
+/* .other_child_menu .navbar ul{height: 30px; margin: 0; border-bottom: none;} */
+.other_child_menu .other_menu_li{
+    height: 33px; line-height: 33px; text-align: center;  margin-bottom: 0;
+    width: 100%; border-bottom: 1px #ddd solid; border-right: 0; border-left: 0;
+}
+.other_menu_li.game_tab{
+	 color: #606467; border: none;
+}
+.other_menu_li.on_off:before{
+	position: absolute; right: 5px; bottom: 13px; 
+}
+.other_menu_li.off:before{
+    width: 0px; height: 0px; content:"";
+    border-left: 4px solid transparent; border-right: 4px solid transparent;
+    border-top: 4px solid #5bc0de;
+}
+.other_menu_li.on_bg{
+	background-color: #FFFFFF; 
+}
+.other_menu_li.off_bg{
+	 background-color: #F5F5F5;
+}
+.other_menu_li.on:before{
+	width: 0px; height: 0px; content:"";
+    border-left: 4px solid transparent; border-right: 4px solid transparent;
+    border-bottom: 4px solid #5bc0de;  
+}
+.other_menu_li.active{
+    color: #FF830F; background-color: #FFFFFF; 
+}
+.other_menu_li:first-of-type{
+    border-left: 0;
+}
+
+.game_type_menu .other_menu_li.align_left{
+	text-align: left; padding-left: 10px;
+}
+.game_type_menu .other_menu_li.game_tab{
+	padding-left: 1.5em;
+}
+
+/*用于引用member_menu.jsp的页面*/
+.have_menu{
+    position: absolute; bottom: 45px; 
+}
+
+/*返回*/
+.have_return{
+    top: 50px;
+}
+.return_div{
+    position: absolute; top: 0; height: 50px; width: 100%;
+    text-align: center; line-height: 40px;
+}
+.return_div .return_arrow{
+    font-size: 3em; position: absolute; left: 10px; color: #7A7A7A; cursor: pointer;
+}
+.return_div .showing_name{
+    color: #393939; font-size: 1.2em; font-family: SimHei;	
+}
+.return_div:after{
+    content: ""; position: absolute; bottom: 0; left: 0; width: 100%;
+    background-color: #EEEEEE; height: 10px; border-top: 1px #DADADA solid;
+}
+
+/*玩项列表*/
+.left_menu_bg.game_types{
+    width: 40%; background-color: #FFFFFF; z-index: -1; 
+    padding-top: 35px; padding-left: 10px; 
+}
+.left_menu_bg.game_types .list-group-item{
+	border-left: 0; border-right: 0; border-color: #F2F2F2; text-indent: 0.5em;
+}
+.left_menu_bg.game_types .list-group-item.title_menu_li{
+    font-family: SimHei; color: #111111; text-indent: 0; padding-left: 5px;
+}
+.left_menu_bg.game_types .list-group-item:first-child{
+	border-top-left-radius: 0; border-top-right-radius: 0;
+	border-top-color: #ddd;
+}
+.left_menu_bg.game_types .list-group-item:last-child{
+	border-bottom-left-radius: 0; border-bottom-right-radius: 0;
+	border-bottom-color: #ddd;
+}
+.left_menu_bg.game_types .list-group-item.active, 
+.left_menu_bg.game_types .list-group-item.active:focus, 
+.left_menu_bg.game_types .list-group-item.active:hover{
+    background-color: #FFFFFF; color: #FF830F; font-weight: bold; font-family: SimHei;
+    z-index: -1;
+/*     border-bottom: 2px #FD993E solid; */
+}
+.left_menu_bg.game_types .icon_options:before{
+	content: '☰'; color: #46b8da; padding-right: 5px; font-size: 1.3em;
+}
+.left_menu_bg.game_types.show{
+    display: block;	
+}
+.have_game_types{
+    left: 40%;  width: 100%; overflow: hidden;
+}
+@media (min-width: 768px){
+	.left_menu_bg{
+	   bottom: 55px;
+	}
+    .other_child_menu .other_menu_li{
+       height: 40px; line-height: 40px; font-size: 1.2em;
+    }
+    .menu_tab_div .menu_navbar.navbar{
+        min-height: 50px;
+    }
+    .menu_tab_div .activity_top.nav-tabs>li.active>a, 
+    .menu_tab_div .activity_top.nav-tabs>li.active>a:focus, 
+    .menu_tab_div .activity_top.nav-tabs>li.active>a:hover{
+        height: 54px;
+    }
+    .menu_tab_div .activity_top.nav>li>a{
+        line-height: 55px; font-size: 1.2em;
+    }
+    .have_menu{
+	    position: absolute; bottom: 55px; 
+	}
+	.have_return{
+        top: 60px;
+    }
+    .return_div{
+        height: 60px; line-height: 50px;
+    }
+    .return_div .return_arrow{
+        font-size: 4em;
+    }
+}
+@media (max-width: 320px){
+	.me_div .me_ul li{
+	   padding: 5px;
+	}
+	.game_type_menu .other_menu_li.game_tab{
+	    padding-left: 1.1em;
+	}
+}

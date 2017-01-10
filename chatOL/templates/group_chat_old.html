@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{%static 'css/base308288.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'css/bootstrap.min.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'css/normal.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'css/group_chat.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'css/member_menu.css'%}">
+    <!--<script type="text/javascript" src="{%static 'js/rock.socket.js'%}"></script>-->
+    <script type="text/javascript" src="{%static 'js/jquery2.min.js'%}"></script>
+    <script type="text/javascript" src="{%static 'js/bootstrap.min.js'%}"></script>
+    <script type="text/javascript" src="{%static 'js/rock.normal.js'%}"></script>
+    <script type="text/javascript" src="{%static 'js/rock.validate.js'%}"></script>
+    <script type="text/javascript" src="{%static 'js/chat.js'%}"></script>
+    <script type="text/javascript" src='{% static "js/jquery-1.12.1.min.js" %}'></script>
+    <script type="text/javascript" src='{% static "js/reconnecting-websocket.min.js" %}'></script>
+
+
+    <title>聊天室</title>
+</head>
+<body>
+
+<script type="text/javascript" src="{%static 'js/member_menu.js'%}"></script>
+<!--<script type="text/javascript" src="{%static 'js/login_check.js'%}"></script>-->
+<script type="text/javascript">
+    var parentList = new Array();
+    var childList  = new Array();
+    var gameTypeList = new Array(); //玩项列表
+        		parentList[parentList.length] = new Array(
+    				'2781',
+    				'2788',
+    				'评论',
+    				'/chatroom/',
+    				'maxRow=10');
+
+    		parentList[parentList.length] = new Array(
+    				'2782',
+    				'2788',
+    				'下注选项',
+    				'/mobile/chat/group_chat2.jsp',
+    				'game_types');
+
+
+
+
+</script>
+<div class="menu_tab_div">
+    <nav class="menu_navbar navbar navbar-default navbar-fixed-bottom" role="navigation">
+        <ul id="first_menu_ul" class="nav nav-tabs navbar-nav activity_top">
+
+            <li class="nav_li first_menu_li menu_li active showing" id="2781" parent_id="2788"
+                url="" style="width: 25%;">
+                <a href="#tab_show" data-toggle="tab">聊天</a>
+            </li>
+            <li class="nav_li first_menu_li menu_li menu_me have_children" id="2782" parent_id="2788"
+                style="width: 25%;">
+                <a href="#tab_show" data-toggle="tab">下注选项</a>
+            </li>
+            <li class="nav_li first_menu_li menu_li have_children" id="2783" parent_id="2788" url=""
+                style="width: 25%;">
+                <a href="http://10.lottoly.com/mobile/chat/group_chat.jsp?maxRow=10#tab_show" data-toggle="tab">开奖结果</a>
+            </li>
+            <li class="nav_li first_menu_li menu_li menu_me have_children" id="2784" parent_id="2788"
+                url="" style="width: 25%;">
+                <a href="" data-toggle="tab">我</a>
+            </li>
+        </ul>
+    </nav>
+</div>
+<div class="me_div" id="me_div" style="width: 25%; height: 45px;">
+    <div class="icon_menu" id="dropdown_memu" data-toggle="dropdown"></div>
+    <ul id="me_ul" class="dropdown-menu me_ul" role="menu" aria-labelledby="dropdown_memu">
+        <li class="list-group-item no_click">余额：<b class="red_word" id="balance"></b></li>
+        <li class="list-group-item no_click">今日输赢：<b class="red_word" id="losewin"></b></li>
+        <li class="child_menu_li list-group-item menu_li" parent_id="2784" id="2920" url="/lottogroup/pay_query?">上下分
+        </li>
+        <li class="child_menu_li list-group-item menu_li" parent_id="2784" id="2917"
+            url="/mobile/report/orderDetailMember_query?">下注记录
+        </li>
+        <li class="child_menu_li list-group-item menu_li" parent_id="2784" id="2969" url="/mobile/report/120_query?">
+            下注历史
+        </li>
+        <li class="child_menu_li list-group-item menu_li" parent_id="2784" id="2919"
+            url="/mobile/chat/online_service.jsp?qq=123&amp;wx=123">联系客服
+        </li>
+        <li class="child_menu_li list-group-item menu_li" parent_id="2784" id="2916" url="/mobile/help/lotto_rule.jsp?">
+            规则说明
+        </li>
+        <li class="child_menu_li list-group-item menu_li" parent_id="2784" id="2921" url="/mobile/user/qrcode.jsp?">
+            二维码
+        </li>
+        <li class="child_menu_li list-group-item menu_li" parent_id="2784" id="2922" href="/set_avatar">
+            修改昵称头像
+        </li>
+        <a class="child_menu_li list-group-item menu_li" parent_id="2784" id="2894"
+           href="/set_my_password/">修改密码
+        </a>
+        <a class="child_menu_li list-group-item menu_li menu_li_logout" parent_id="2784" id="2899"
+           href="/logout/">退出 {{username}}
+        </a>
+    </ul>
+</div>
+<!-- 置顶的“我”菜单 -->
+<!-- <div class="me_div" id="me_div">  -->
+<!--      <div class="icon_menu" id="dropdown_memu" data-toggle="dropdown"></div> -->
+<!--      <ul id="me_ul" class="dropdown-menu me_ul" role="menu"  aria-labelledby="dropdown_memu"> -->
+<!--          <li role="presentation" class="menu_li"> -->
+<!--             <a href="#tab_show" role="menuitem"></a> -->
+<!--          </li> -->
+<!--      </ul> -->
+<!-- </div> -->
+<!-- 用于其他页面展示 -->
+<ul class="nav nav-tabs" id="other_menu_ul"></ul>
+<script type="text/javascript">
+    var g_group_id = 1000;
+    var g_user_id = 15836;
+    var g_parent_id = 0;
+    var g_account = 'etest';
+    var g_user_name = 'test';
+
+</script>
+
+<div class="show_discuss all_content have_menu">
+
+    <ul class="list-unstyled discuss_ul" id="msg_list">
+        <li class="demo_li discuss_li" index="-1">
+            <div class="chat_date_bg"><span class="chat_date"></span></div>
+            <div class="head_img_div">
+                <img class="head_img" src="{%static 'images/adm_head.png'%}">
+            </div>
+            <div class="base_info">
+                <div class="user_name"></div>
+                <div class="content talkbubble">
+                </div>
+            </div>
+        </li>
+        {%for msg in messages%}
+        {%ifequal msg.handle username%}
+        <li class="discuss_li myself" style="display: list-item;">
+            <div class="chat_date_bg"><span class="chat_date">{{msg.formatted_timestamp}}</span></div>
+            <div class="head_img_div">
+                <img class="head_img" src="{%static 'images/def_head.png'%}">
+            </div>
+            <div class="base_info">
+                <div class="user_name">{{msg.handle}}</div>
+                <div class="content talkbubble">{{msg.message}}</div>
+            </div>
+        </li>
+        {%else%}
+        {%ifequal msg.handle '系统管理员'%}
+        <li class="discuss_li" style="display: list-item;">
+            <div class="chat_date_bg"><span class="chat_date">{{msg.formatted_timestamp}}</span></div>
+            <div class="head_img_div">
+                <img class="head_img" src="{%static 'images/adm_head.png'%}">
+            </div>
+            <div class="base_info">
+                <div class="user_name">{{msg.handle}}</div>
+                <div class="content talkbubble">{{msg.message}}</div>
+            </div>
+        </li>
+        {%else%}
+        <li class="discuss_li" style="display: list-item;">
+            <div class="chat_date_bg"><span class="chat_date">{{msg.formatted_timestamp}}</span></div>
+            <div class="head_img_div">
+                <img class="head_img" src="{%static 'images/def_head.png'%}">
+            </div>
+            <div class="base_info">
+                <div class="user_name">{{msg.handle}}</div>
+                <div class="content talkbubble">{{msg.message}}</div>
+            </div>
+        </li>
+
+        {%endifequal%}
+        {%endifequal%}
+        {%endfor%}
+
+    </ul>
+    <div class="input_div">
+        <div class="head_div">
+            <img class="head_img" id="user_head_img" src="{%static 'images/def_head.png'%}">
+        </div>
+        <div class="discuss_div no_head_img">
+            <textarea class="form-control" id="msg_content" placeholder="我来说两句"></textarea>
+        </div>
+        <button type="button" class="submit_msg btn btn-info" id="btn_send_msg">发送</button>
+    </div>
+</div>
+<div class="modal bs-example-modal-sm content_modal" id="content_modal" tabindex="-1" role="dialog"
+     aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <ul class="list-group">
+                <li class="list-group-item recall" id="recall">撤销</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    var g_chat_log = {
+        "msgList": [{
+            "MSG_ID": 73961,
+            "MSG_TYPE": "chat",
+            "CREATE_DATE": 1483360066000,
+            "TO_USER": 0,
+            "STATE_DATE": "2017-01-02T20:27:46",
+            "USER_ID": 0,
+            "STATE": 0,
+            "CONTENT": "◆福布斯Forbes◆欢迎您\r\n————————————\r\n lrqtest1:,余额500\r\n lrqtest2:,余额22222\r\n lrqtest3:,余额12096\r\n llrrqq:,余额7672\r\n lrq2:,余额8343\r\n eee:,余额8234\r\n lrq4:,余额8350\r\n lrq5:,余额10000\r\n qq:,余额42605\r\n lrq6:,余额25128\r\n osk888:,余额52104\r\n tom168:,余额50486\r\n xj82915:,余额50000\r\n xj82195:,余额58000\r\n qq123123:,余额59435\r\n 17844117:,余额49628\r\n win8688:,余额60630\r\n qq352556:,余额769727\r\n cyj15960697080:,余额30000\r\n 12345677:,余额50000\r\n xgh82195:,余额49323\r\n lrq8:,余额10005650\r\n yyx:,余额10009985\r\n jj0001:,余额4723\r\n 626677593:,余额30000\r\n test:,余额1026005\r\n fj0001:,余额500\r\n 林锋:,余额14099\r\n 小A:,余额1000\r\n 贝勒爷:,余额600\r\n a1072627953:,余额267990\r\n 有心人:,余额1086\r\n 你好好好:,余额724\r\n pppppooooo:,余额92000\r\n kkkkklllll:,余额87374\r\n 林林林:,余额82600\r\n haha:,余额200\r\n 654874616:,余额7989\r\n 80999917:,余额90000\r\n 13655036220:,余额100000\r\n————————————\r\n特码赔率9.5含本金\r\n大小单双赔率1.94含本金\r\n下注范围:10-10000\r\n只有特码大小单双\r\n无大单大双组合\r\n下注格式123\/100 大100\r\n\r\n---595477期开奖数字---\r\n9+7+3+4+2+8+6+10+1+5\r\n\r\n---595477期开始接受下注---",
+            "USER_NAME": "系统提示",
+            "HEAD_IMG": "\/mobile\/img\/adm_head.png",
+            "GROUP_ID": 1000
+        }, {
+            "MSG_ID": 73958,
+            "MSG_TYPE": "chat",
+            "CREATE_DATE": 1483360010000,
+            "TO_USER": 0,
+            "STATE_DATE": "2017-01-02T20:26:50",
+            "USER_ID": 0,
+            "STATE": 0,
+            "CONTENT": "---595477期封盘线---\r\n◆因不可控因素网络延迟◆\r\n◆导致下注未识别不同步◆\r\n所以确认入单明细为准◆\r\n一视同仁◆◆无需争议◆\r\n◆超额下注◆◆一律无效◆\r\n◆即将开奖◆◆等待中奖◆\r\n◆明细内有效◆无明细无效◆\r\n↓↓↓请核对您的下注明细↓↓↓\r",
+            "USER_NAME": "系统提示",
+            "HEAD_IMG": "\/mobile\/img\/adm_head.png",
+            "GROUP_ID": 1000
+        }]
+    }.msgList;
+
+
+        	<!--var message = {-->
+            <!--handle: '{{username|safe}}',-->
+            <!--message: $('#msg_content').val(),-->
+        <!--}-->
+        var chatlog={}
+        chatlog['handle']='{{username|safe}}'
+
+
+
+</script>
+</body>
+</html>

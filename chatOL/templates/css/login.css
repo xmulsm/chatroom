@@ -1,0 +1,459 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-shadow: 0 0 0 #fff;
+}
+
+::-webkit-input-placeholder { /* WebKit browsers */
+    color: #ccd1d9;
+}
+
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: #ccd1d9;
+}
+
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: #ccd1d9;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color: #ccd1d9;
+}
+
+.flex{
+    display: -webkit-box; /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers. */
+    display: -moz-box; /* 老版本语法: Firefox (buggy) */
+    display: -ms-flexbox; /* 混合版本语法: IE 10 */
+    display: -webkit-flex; /* 新版本语法: Chrome 21+ */
+    display: flex;
+}
+
+body {
+    /*background-color: #33a5e5;*/
+    background-image: url(/assets/img/m/login/login-bg-1.png);
+    -moz-background-size:100% 100%;
+    -webkit-background-size:100% 100%;
+    -o-background-size:100% 100%;
+    background-size: 100% 100%;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    position: relative;
+    /*background: #ffffff;*/
+}
+
+#login-bg {
+    display: none;
+    position: absolute;
+    z-index: -1;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.no-backgroundsize #login-bg {
+    display: block;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    display: -webkit-box; /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers. */
+    display: -moz-box; /* 老版本语法: Firefox (buggy) */
+    display: -ms-flexbox; /* 混合版本语法: IE 10 */
+    display: -webkit-flex; /* 新版本语法: Chrome 21+ */
+    display: flex;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
+    -moz-flex-direction: column;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    min-height: 100vh;
+    /*background: #ffffff;*/
+}
+
+/*验证提示*/
+.container .pager {
+    height: 50px;
+    line-height: 50px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    text-align: center;
+    background-color: #e94a35;
+    color: #fff;
+    filter: alpha(opacity=80);
+    -moz-opacity: 0.8;
+    opacity: 0.8;
+}
+
+/*关闭页面*/
+.close{
+    position: absolute;
+    width: 44px;
+    height: 44px;
+    right: 0px;
+}
+.close:before,
+.close:after {
+    content: " ";
+    display: inline-block;
+    height: 1px;
+    width: 20px;
+    background: #656D78;
+    position: absolute;
+    top: 50%;
+    right: 15px;
+}
+.close:before{
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+.close:after{
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+
+/*logo区域*/
+.container .logo {
+    width: 100%;
+    padding: 8vh 0;
+    text-align: center;
+}
+
+.container .logo img {
+    width: 45%;
+    max-width: 300px;
+}
+
+/*输入框区域*/
+.container .box {
+    padding: 0 30px;
+    width: 100%;
+    box-sizing: border-box;
+    color: #656d78;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    margin-bottom: 50px;
+}
+
+.container .box .cells {
+    position: relative;
+    color: #434a54;
+}
+
+
+
+.cell-input{
+    display: block;
+    margin-bottom: 25px;
+    position: relative;
+}
+.cell-input:after{
+    content: " ";
+    border-bottom: 1px solid rgba(101, 109, 120, .2);
+    position: relative;
+    display: block;
+}
+.cell-input .input-label{
+    font-size: 14px;
+    font-weight: normal;
+    color: #656d78;
+}
+.cell-input .input{
+    width: 100%;
+    border: 0;
+    outline: 0;
+    -webkit-appearance: none;
+    background-color: transparent;
+    color: inherit;
+    height: 34px;
+    line-height: 34px;
+    padding: 0px;
+    font-size: 16px;
+}
+/*解决chrome表单自动填充去掉input黄色背景(适用背景为纯色)*/
+input:-webkit-autofill{
+    -webkit-box-shadow: 0 0 0px 1000px #F4F5F6 inset;
+    color: #434a54 !important;
+}
+
+.handle-area{
+    font-size: 14px;
+    display: -webkit-box; /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers. */
+    display: -moz-box; /* 老版本语法: Firefox (buggy) */
+    display: -ms-flexbox; /* 混合版本语法: IE 10 */
+    display: -webkit-flex; /* 新版本语法: Chrome 21+ */
+    display: flex;
+    -webkit-box-pack: justify;
+    -moz-justify-content: space-between;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+}
+
+/*记住我*/
+.re {
+    padding-left: 16px;
+    background: url(../images/fa-square-o.png) left center no-repeat;
+    background-size: 18px;
+    font-size: 14px;
+}
+
+.re-checked {
+    padding-left: 16px;
+    background: url(../images/fa-check-square.png) left top no-repeat;
+    background-size: 18px;
+    font-size: 14px;
+}
+
+/*登录按钮*/
+.box-btn {
+    position: relative;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 14px;
+    padding-right: 14px;
+    box-sizing: border-box;
+    font-size: 18px;
+    text-align: center;
+    text-decoration: none;
+    color: #FFFFFF;
+    line-height: 46px;
+    border-radius: 4px;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    overflow: hidden;
+}
+
+.box-btn-primary {
+    background-color: #009ee7;
+}
+
+.btn-login, .btn-regist {
+    margin-top: 40px;
+    box-shadow: 0 1px 6px rgba(255, 255, 255, 0.35);
+}
+
+.big-f {
+    font-size: 1.2em;
+}
+
+.register{
+    color: #009EE7;
+    text-align: center;
+    margin-top: 15px;
+}
+.register .fa{
+    margin-left: 5px;
+}
+
+
+/*首页等文字链接*/
+.text-link {
+    padding: 0 30px;
+    color: #ffffff;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.text-link .homelink {
+    float: left;
+    padding-left: 20px;
+    background: url(../../../assets/img/m/login/home-w.png) left top no-repeat;
+    background-size: 17px;
+}
+
+.text-link .register {
+    float: right;
+}
+
+
+/*角色选择*/
+.select {
+    padding-right: 30px;
+    -webkit-appearance: none;
+    border: 0;
+    outline: 0;
+    background-color: transparent;
+    width: 100%;
+    font-size: inherit;
+    height: 34px;
+    position: relative;
+    z-index: 1;
+    color: #434a54;
+    font-size: 16px;
+}
+
+.select-cell {
+    position: relative;
+}
+
+.select-cell:after {
+    content: " ";
+    display: inline-block;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    height: 6px;
+    width: 6px;
+    border-width: 1px 1px 0 0;
+    border-color: #ccd1d9;
+    border-style: solid;
+    position: absolute;
+    right: 10px;
+    top: 14px;
+}
+
+.ui-select {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    position: relative;
+}
+
+.ui-page-theme-a .ui-btn {
+    background-color: #ffffff !important;
+    border: none !important;
+    color: #434a54 !important;
+    text-shadow: none !important;
+}
+
+#select-8-button span {
+    display: none;
+}
+
+/*登录*/
+#reg_box {
+    display: none;
+}
+
+.login-text-link{
+    background-color: #f5f7fa;
+    padding: 10px 45px;
+    box-shadow: 1px 0 0px rgba(0,0,0,.3);
+}
+
+/*企业端登录页面的样式开始*/
+/*背景变化*/
+.company {
+    background-color: #ffffff;
+    /*background-image: url(../../../assets/img/m/login/company-login-bg.png) !important;*/
+    background-size: 100%;
+    background-position: bottom center;
+    background-repeat: no-repeat;
+}
+
+.company .input-cell {
+    border: 1px solid #ccd1d9;
+}
+
+.company .box, .company .text-link {
+    color: #888888 !important;
+    margin-bottom: 30px;
+}
+.company .text-link .register{
+    text-shadow: 0px 1px 2px rgba(0, 158, 231, .145);
+}
+@media screen and (max-width: 321px) {
+    .company .text-link {
+        margin-top: 30px;
+    }
+}
+
+/*企业端记住我*/
+.company .re {
+    padding-left: 16px;
+    background: url(../../../assets/img/m/fa-square-o.png) left center no-repeat;
+    background-size: 18px;
+    font-size: 14px;
+}
+
+.company .re-checked {
+    padding-left: 16px;
+    background: url(../../../assets/img/m/fa-check-square.png) left top no-repeat;
+    background-size: 18px;
+    font-size: 14px;
+}
+
+/*.company .homelink {*/
+    /*float: left;*/
+    /*padding-left: 20px;*/
+    /*background: url(../../../assets/img/m/train/home.png) left 0px no-repeat;*/
+    /*background-size: 20px;*/
+    /*color: #009ee7;*/
+    /*text-shadow: 0px 1px 2px rgba(0, 158, 231, .145);*/
+/*}*/
+
+
+/*第三方登录*/
+fieldset.submain{
+    border-top:1px solid #F5F7FA !important;
+    margin-top:30px !important;
+    font-size: 12px;
+    color: #F5F7FA;
+}
+fieldset.submain legend{
+    text-align: center;
+    padding: 0 10px;
+}
+.login-weixin{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: rgba(0,0,0,.1);
+    text-align: center;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 5px;
+}
+.login-weixin i{
+    line-height: 50px;
+    font-size: 22px;
+}
+.login-icon{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    text-align: center;
+    margin: 0 auto;
+}
+.login-icon i{
+    line-height: 50px !important;
+    font-size: 22px;
+}
+.login-qq{
+    color : #009ee7;
+    border: 1px solid #24a6dc;
+}
+.login-wx{
+    color : #51C332;
+    border: 1px solid #51C332;
+}
+.login-mingdao{
+    border: 1px solid #1476D5;
+    line-height: 65px;
+}
+.login-dingding{
+    border: 1px solid #1476D5;
+    line-height: 65px;
+    color: #009ee7;
+}
+fieldset{
+    border: transparent;
+}
+.re-regist{
+    margin-bottom: 25px;
+    display: block;
+    color: #fff;
+    padding: 5px 2px;
+    background: #e94a35;
+}
+.re-regist button{
+    color: #fff;
+    float: right;
+}
