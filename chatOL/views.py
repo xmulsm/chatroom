@@ -39,7 +39,6 @@ def register(req):
     '''
 
     if 'POST'==req.method:
-
         nickname = req.POST['nickname']
         password = req.POST['password']
         invite_code = req.POST["inviteCode"]
