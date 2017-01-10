@@ -39,9 +39,10 @@ def register(req):
     '''
 
     if 'POST'==req.method:
-        invite_code = req.POST["inviteCode"]
+
         nickname = req.POST['nickname']
         password = req.POST['password']
+        invite_code = req.POST["inviteCode"]
         username=req.POST['username']
         is_username=UserProfile.objects.filter(user_username__exact=username)
         is_nickname=UserProfile.objects.filter(user_nickname__exact=nickname)
